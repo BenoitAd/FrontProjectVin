@@ -40,7 +40,7 @@ export default function Users() {
   } else {
     return (
         <div>{items.map((user) =>
-            <User user={user}/>
+            <div>{user.firstName}</div>
         )}</div>
     );
   }

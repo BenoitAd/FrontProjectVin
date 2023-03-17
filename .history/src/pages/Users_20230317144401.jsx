@@ -1,11 +1,10 @@
 
 import { useState, useEffect } from "react";
-import User from "../components/User";
 export default function Users() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-
+  let users = []
   // Note: the empty deps array [] means
   // this useEffect will run once
   // similar to componentDidMount()
@@ -15,11 +14,12 @@ export default function Users() {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(Object.values(result)[3]);
+          setItems(result);
           console.log(result)
           console.log(Object.keys(result))
           console.log(Object.values(result)[3])
-
+          users = Object.values(result)[3]
+          console.log(users)
 
         },
         // Note: it's important to handle errors here
@@ -39,9 +39,6 @@ export default function Users() {
     return <div>Loading...</div>;
   } else {
     return (
-        <div>{items.map((user) =>
-            <User user={user}/>
-        )}</div>
     );
   }
 }

@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import User from "../components/User";
 export default function Users() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -40,7 +39,7 @@ export default function Users() {
   } else {
     return (
         <div>{items.map((user) =>
-            <User user={user}/>
+            <div>{user.firstName}</div>
         )}</div>
     );
   }

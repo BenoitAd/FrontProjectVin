@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import User from "../components/User";
 export default function Users() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,12 +14,8 @@ export default function Users() {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(Object.values(result)[3]);
+          setItems(result);
           console.log(result)
-          console.log(Object.keys(result))
-          console.log(Object.values(result)[3])
-
-
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -39,9 +34,7 @@ export default function Users() {
     return <div>Loading...</div>;
   } else {
     return (
-        <div>{items.map((user) =>
-            <User user={user}/>
-        )}</div>
+      <div>{items.email}</div>
     );
   }
 }

@@ -1,8 +1,7 @@
 
 import { useState, useEffect } from "react";
-import User from "../components/User";
 export default function Users() {
-  const [error, setError] = useState(null);
+    const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
@@ -10,17 +9,12 @@ export default function Users() {
   // this useEffect will run once
   // similar to componentDidMount()
   useEffect(() => {
-    fetch("https://localhost/users/all")
+    fetch("https://localhost/users/unique/43")
       .then(res => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(Object.values(result)[3]);
-          console.log(result)
-          console.log(Object.keys(result))
-          console.log(Object.values(result)[3])
-
-
+          setItems(result);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -28,7 +22,6 @@ export default function Users() {
         (error) => {
           setIsLoaded(true);
           setError(error);
-          console.log(error)
         }
       )
   }, [])
@@ -39,9 +32,7 @@ export default function Users() {
     return <div>Loading...</div>;
   } else {
     return (
-        <div>{items.map((user) =>
-            <User user={user}/>
-        )}</div>
+      <div>{items.email}</div>
     );
   }
 }
