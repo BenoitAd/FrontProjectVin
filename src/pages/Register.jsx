@@ -16,9 +16,10 @@ export default function Register() {
         event.preventDefault()
         let item={name,nickName,password,email,pseudo,city,badge}
         console.log(item)
-        /*
+        
         // api call 
-        let response = await fetch("link",{
+        /*
+        let response = await fetch("http://example.com/api/register",{
             method:"POST",
             body:JSON.stringify(item),
             headers:{
@@ -27,6 +28,10 @@ export default function Register() {
             }
         })
         response = await response.json()
+        // put the connection token in local storage
+        if (response.token) {
+            localStorage.setItem("token",response.token)
+        }
         */
         //todo : stocker dans un store
 
@@ -36,7 +41,7 @@ export default function Register() {
 
         // register form
         return (
-        <div class="bg-[url('/public/vignoble.jpeg')] h-full bg-no-repeat bg-center absolute bg-cover inset-0 overflow-hidden">
+        <div class="bg-[url('/public/vignoble.jpeg')] h-full bg-no-repeat bg-center absolute bg-cover bg-top inset-0 overflow-hidden">
             <div class="max-w-2xl max-h-4xl mx-auto my-10 ">
                 <h1 class="text-6xl font-bold text-center my-6 text-color shadow_title ">Inscription</h1>
                 <form class="px-4 my-10 max-w-3xl mx-auto space-y-6 " onSubmit={signUp}>

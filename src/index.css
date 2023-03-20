@@ -33,3 +33,7 @@ code {
 .shadow_title {
   text-shadow: 2px 2px 2px black;
 }
+
+.marginMid{
+  margin-left: 50%;
+}
