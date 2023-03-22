@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
+import caveHome from '../public/caveHome.jpg';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Home() {
                 class="absolute xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0 h-full inset-0"
               >
                 <img
-                  src="https://cdn.aveine.paris/blog/wp-content/uploads/2021/09/27102902/shutterstock_619382510.jpg"
+                  src={caveHome}
                   class="w-full h-full object-cover object-left ml-0"
                   alt="Sample"
                 />
