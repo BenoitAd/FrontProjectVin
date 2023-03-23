@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logoVin from '../assets/img/logoVin.jpg'
+import logoVin from '../assets/img/logoVin.png'
 
 export default function Navbar() {
     return (

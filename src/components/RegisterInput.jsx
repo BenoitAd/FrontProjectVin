@@ -2,7 +2,7 @@ export default function registerInput(props) {
     const { label, onChange, placeholder = "" } = props;
 
     return (
-    <label className="text-2xl font-normal text-black">
+    <label className="text-2xl font-normal text-color">
     {label}
     <input
         type="text"
