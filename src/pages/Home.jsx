@@ -1,6 +1,5 @@
-import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
-import caveHome from '../public/caveHome.jpg';
+import caveHome from '../assets/img/caveHome.jpg';
 
 export default function Home() {
   const navigate = useNavigate();
