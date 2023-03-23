@@ -1,6 +1,23 @@
 import Navbar from "../components/Navbar";
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 export default function ForgottenPassword() {
+
+	const navigate = useNavigate();
+	const [email,setEmail] = useState("")
+
+
+
+	function changementMdp(){
+		// call api
+	}
+
+	function onChange(emailValue){
+		setEmail(emailValue)
+	}
+
+
   return (
     <section className="h-screen">
       <div class="h-full text-gray-800">
@@ -38,12 +55,14 @@ export default function ForgottenPassword() {
                     id="email"
                     type="email"
                     placeholder="Entrer votre Addresse Email ..."
+					onChange={(e)=>onChange(e.target.value)}
                   />
                 </div>
                 <div class="mb-6 text-center">
                   <button
                     class="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
                     type="button"
+					onClick={changementMdp}
                   >
                     Changer de mot de passe
                   </button>
@@ -52,7 +71,7 @@ export default function ForgottenPassword() {
                 <div class="text-center">
                   <a
                     class="inline-block text-xl text-blue-500 align-baseline hover:text-blue-800"
-                    href="./register.html"
+                    onClick={() => navigate("/inscription")}
                   >
                     Creer un compte !
                   </a>
@@ -60,7 +79,7 @@ export default function ForgottenPassword() {
                 <div class="text-center">
                   <a
                     class="inline-block text-xl text-blue-500 align-baseline hover:text-blue-800"
-                    href="./index.html"
+                    onClick={() => navigate("/")}
                   >
                     Vous avez deja un compte ? Connectez-vous!
                   </a>

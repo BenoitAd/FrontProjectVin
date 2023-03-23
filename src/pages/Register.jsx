@@ -9,18 +9,29 @@ export default function Register() {
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
   const [error, setError] = useState(false);
+  const [errorPwd, setErrorPwd] = useState(false)
 
   // rooter
   const navigate = useNavigate();
 
+  function passwordValidity(pwdVlue){
+
+    if (password2 != password) {
+        setErrorPwd(true)
+    } else {
+        setErrorPwd(false)
+    }
+
+  }
+
   async function signUp(event) {
     event.preventDefault();
     let item = { lastName, firstName, password, email };
-    console.log(item);
 
     // api call
     let response = await fetch("https://localhost/users/register", {
@@ -33,8 +44,7 @@ export default function Register() {
     });
     let status = response.status;
     response = await response.json();
-    console.log(response);
-    console.log(status);
+
     // todo
     if (status === 201) {
       setIsRegistered(true);
@@ -74,10 +84,8 @@ export default function Register() {
                     <div class="mb-4 mt-4 space-y-6">
                       <RegisterInput label="Nom" onChange={setLastName} />
                       <RegisterInput label="Prenom" onChange={setFirstName} />
-                      <RegisterInput
-                        label="Mot de Passe"
-                        onChange={setPassword}
-                      />
+                      <RegisterInput label="Mot de Passe" type="password" onChange={setPassword} onblur={passwordValidity}/>
+                      <RegisterInput label="Confirmer votre mot de passe" type="password" onChange={setPassword2} onblur={passwordValidity}/>
                       <RegisterInput label="Ville" onChange={setCity} />
                       <RegisterInput label="Email" onChange={setEmail} />
 
@@ -96,6 +104,11 @@ export default function Register() {
                     <div className="error">
                       Erreur lors de la création du compte, veuillez saisir à
                       nouveau vos informations!
+                    </div>
+                  )}
+                    {errorPwd && (
+                    <div className="error">
+                      Le mot de passe et sa confirmation ne correspondent pas !
                     </div>
                   )}
                 </div>
