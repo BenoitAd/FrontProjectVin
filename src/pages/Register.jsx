@@ -14,19 +14,17 @@ export default function Register() {
   const [city, setCity] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
   const [error, setError] = useState(false);
-  const [errorPwd, setErrorPwd] = useState(false)
+  const [errorPwd, setErrorPwd] = useState(false);
 
   // rooter
   const navigate = useNavigate();
 
-  function passwordValidity(pwdVlue){
-
+  function passwordValidity(pwdVlue) {
     if (password2 != password) {
-        setErrorPwd(true)
+      setErrorPwd(true);
     } else {
-        setErrorPwd(false)
+      setErrorPwd(false);
     }
-
   }
 
   async function signUp(event) {
@@ -73,19 +71,40 @@ export default function Register() {
                 <div>
                   <Navbar />
                 </div>
-                <div class="mt-24 my-10 flex items-center justify-center flex-col">
+                <div class="mt-24 my-8 flex items-center justify-center flex-col">
                   <h1 class="text-6xl font-bold text-center  text-color ">
                     Inscription
                   </h1>
+                  {error && (
+                    <div className="error" onClick={() => setError(false)}>
+                      Erreur lors de la création du compte, veuillez saisir à
+                      nouveau vos informations!
+                    </div>
+                  )}
+                  {errorPwd && (
+                    <div className="error">
+                      Le mot de passe et sa confirmation ne correspondent pas !
+                    </div>
+                  )}
                   <form
                     class="px-4 my-6 max-w-3xl mx-auto space-y-6 "
                     onSubmit={signUp}
                   >
-                    <div class="mb-4 mt-4 space-y-6">
+                    <div class="mb-4 space-y-6">
                       <RegisterInput label="Nom" onChange={setLastName} />
                       <RegisterInput label="Prenom" onChange={setFirstName} />
-                      <RegisterInput label="Mot de Passe" type="password" onChange={setPassword} onblur={passwordValidity}/>
-                      <RegisterInput label="Confirmer votre mot de passe" type="password" onChange={setPassword2} onblur={passwordValidity}/>
+                      <RegisterInput
+                        label="Mot de Passe"
+                        type="password"
+                        onChange={setPassword}
+                        onblur={passwordValidity}
+                      />
+                      <RegisterInput
+                        label="Confirmer votre mot de passe"
+                        type="password"
+                        onChange={setPassword2}
+                        onblur={passwordValidity}
+                      />
                       <RegisterInput label="Ville" onChange={setCity} />
                       <RegisterInput label="Email" onChange={setEmail} />
 
@@ -100,17 +119,6 @@ export default function Register() {
                       </div>
                     </div>
                   </form>
-                  {error && (
-                    <div className="error">
-                      Erreur lors de la création du compte, veuillez saisir à
-                      nouveau vos informations!
-                    </div>
-                  )}
-                    {errorPwd && (
-                    <div className="error">
-                      Le mot de passe et sa confirmation ne correspondent pas !
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
@@ -121,7 +129,7 @@ export default function Register() {
   } else {
     // registered
     return (
-      <div className="bg-[url('assets/img/vignoble.png')] h-full bg-no-repeat bg-top absolute bg-cover inset-0 overflow-hidden">
+      <div className="h-full bg-no-repeat bg-top absolute bg-cover inset-0 overflow-hidden">
         <div class="text-center mt-16">
           <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             {" "}
@@ -136,5 +144,5 @@ export default function Register() {
         </div>
       </div>
     );
-  }
+  } 
 }
