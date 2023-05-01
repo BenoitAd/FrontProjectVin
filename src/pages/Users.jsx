@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import User from "../components/User";
+import User from "../components/users/User";
 export default function Users() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);

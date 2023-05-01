@@ -50,13 +50,12 @@ export default function Register() {
     if (!isRegistered){
         // register form
         return (
-
-        <div class="bg-[url('/public/vignoble.jpeg')] h-full bg-no-repeat bg-center absolute bg-cover inset-0 overflow-hidden">
+            <div>
             <div>
                 <Navbar/>
             </div>
             <div class="max-w-2xl max-h-4xl mx-auto my-10 ">
-                <h1 class="text-6xl font-bold text-center my-6 text-color shadow_title ">Inscription</h1>
+                <h1 class="text-6xl font-medium text-center my-6 text-color shadow_title ">Inscription</h1>
                 <form class="px-4 my-10 max-w-3xl mx-auto space-y-6 " onSubmit={signUp}>
                     <div class="mb-4 mt-4 space-y-6">  
                        <RegisterInput label="lastName" onChange={setLastName}/>
@@ -79,17 +78,15 @@ export default function Register() {
                     </div>
                 )}
             </div>
-        </div>
+            </div>
         )
     } else {
         // registered
         return (
-            <div className="bg-[url('/public/vignoble.jpeg')] h-full bg-no-repeat bg-top absolute bg-cover inset-0 overflow-hidden">
                 <div class="text-center mt-16">
                 <h1 className='mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white'> Votre compte a été crée !</h1>
                 <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate("/") }>Retour a l'acceuil </button>
                 </div>
-            </div>
         )
     }
 }

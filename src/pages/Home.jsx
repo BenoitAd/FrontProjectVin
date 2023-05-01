@@ -1,9 +1,45 @@
-import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
-import caveHome from '../public/caveHome.jpg';
+import caveHome from '../images/caveHome.jpg';
+import { useState } from 'react';
 
 export default function Home() {
   const navigate = useNavigate();
+  const [error,setError]=useState(false)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const login = async (event) => {
+    event.preventDefault();
+    let item = { email, password };
+    console.log(item);
+    /*
+            // api call 
+            let response = await fetch("https://localhost/users/login",{
+              method:"POST",
+              body:JSON.stringify(item),
+              headers:{
+                  "Content-type":'application/json',
+                  "Accept":'application/json'
+              }
+          })
+          let status = response.status
+          response = await response.json()
+          console.log(response)
+          console.log(status)
+  */
+          if(false)
+          {
+              navigate("/Fmdp")
+          } else {
+            // error
+            setError(true)
+          }
+
+  };
+
+
+
+
     return (
         <>
         <section class="h-screen">
@@ -38,6 +74,7 @@ export default function Home() {
                       border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput2"
                       placeholder="Addresse Email"
+                      onChange={(event) => setEmail(event.target.value)}
                     />
                   </div>
 
@@ -48,6 +85,7 @@ export default function Home() {
                       border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput2"
                       placeholder="Mot de passe"
+                      onChange={(event) => setPassword(event.target.value)}
                     />
                   </div>
 
@@ -72,6 +110,7 @@ export default function Home() {
                       class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md
                       hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 
                       active:shadow-lg transition duration-150 ease-in-out"
+                      onClick={login}
                     >
                       Login
                     </button>
@@ -85,6 +124,11 @@ export default function Home() {
                     </p>
                   </div>
                 </form>
+                {error && (
+                    <div className="error">
+                    Erreur lors de la connection a votre compte, veuillez saisir à nouveau vos informations !
+                    </div>
+                )}
               </div>
             </div>
           </div>
