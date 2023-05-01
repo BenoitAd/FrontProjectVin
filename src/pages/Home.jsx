@@ -1,3 +1,4 @@
+import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import caveHome from '../images/caveHome.jpg';
 import { useState } from 'react';
