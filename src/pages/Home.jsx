@@ -1,18 +1,42 @@
 import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import caveHome from '../images/caveHome.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const navigate = useNavigate();
   const [error,setError]=useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("email");
+    const storedPassword = localStorage.getItem("password");
+
+    if (storedEmail && storedPassword) {
+      let item = { storedEmail, storedPassword };
+      console.log(item);
+    }
+  }, []);
+
+  const handleRememberMeChange = (event) => {
+    console.log(event.target.checked);
+    setRememberMe(event.target.checked);
+  };
 
   const login = async (event) => {
     event.preventDefault();
     let item = { email, password };
     console.log(item);
+    console.log(rememberMe);
+    if (rememberMe) {
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+    } else {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+    }
     /*
             // api call 
             let response = await fetch("https://localhost/users/login",{
@@ -30,6 +54,13 @@ export default function Home() {
   */
           if(false)
           {
+            if (rememberMe) {
+              localStorage.setItem("username", email);
+              localStorage.setItem("password", password);
+            } else {
+              localStorage.removeItem("username");
+              localStorage.removeItem("password");
+            }
               navigate("/Fmdp")
           } else {
             // error
@@ -37,9 +68,6 @@ export default function Home() {
           }
 
   };
-
-
-
 
     return (
         <>
@@ -73,7 +101,6 @@ export default function Home() {
                       type="text"
                       class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid
                       border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput2"
                       placeholder="Addresse Email"
                       onChange={(event) => setEmail(event.target.value)}
                     />
@@ -84,7 +111,6 @@ export default function Home() {
                       type="password"
                       class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid
                       border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput2"
                       placeholder="Mot de passe"
                       onChange={(event) => setPassword(event.target.value)}
                     />
@@ -97,6 +123,8 @@ export default function Home() {
                         class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600
                         checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                         id="exampleCheck2"
+                        checked={rememberMe} 
+                        onChange={handleRememberMeChange}
                       />
                       <label class="form-check-label inline-block italic font-semibold " for="exampleCheck2"
                         >Remember me</label
