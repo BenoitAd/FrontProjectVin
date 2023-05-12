@@ -1,4 +1,6 @@
-# Front d'un pojet de Cave a vin virtuel réalisé avec @PierreGoupil13
+# Front d'un pojet de Cave a vin virtuel réalisé en binome avec @PierreGoupil13
+Dans ce projet de développement web, notre objectif était de partager nos connaissances avec Pierre en nous concentrant sur deux domaines spécifiques: le FrontEnd avec ReactJS et le BackEnd avec PHP.
+J'ai ainsi enseigné à Pierre les rudiments de React et du développement FrontEnd, tandis qu'il m'a aidé à débuté en PHP.
 
 ## Technologie :
 
