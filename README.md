@@ -3,6 +3,14 @@ Dans ce projet de développement web, notre objectif était de partager nos conn
 Le FrontEnd avec ReactJS et le BackEnd avec PHP.
 J'ai ainsi enseigné à Pierre les rudiments de React et du développement FrontEnd, tandis qu'il m'a aidé à débuté en PHP.
 
+## Aperçu : 
+
+![Page d'acceuil](./assetsReadMe\pageAcceuil.PNG)
+
+![Page register](./assetsReadMe\pageInscription.PNG)
+
+![Page password](./assetsReadMe\pagePwd.PNG)
+
 ## Technologie :
 
 - React.js
