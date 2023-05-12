@@ -5,11 +5,11 @@ J'ai ainsi enseigné à Pierre les rudiments de React et du développement Front
 
 ## Aperçu : 
 
-![Page d'acceuil](./assetsReadMe\pageAcceuil.PNG)
+![Page d'acceuil](./assetsReadMe/pageAcceuil.PNG)
 
-![Page register](./assetsReadMe\pageInscription.PNG)
+![Page register](./assetsReadMe/pageInscription.PNG)
 
-![Page password](./assetsReadMe\pagePwd.PNG)
+![Page password](./assetsReadMe/pagePwd.PNG)
 
 ## Technologie :
 
