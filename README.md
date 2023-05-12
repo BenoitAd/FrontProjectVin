@@ -10,7 +10,7 @@ J'ai ainsi enseigné à Pierre les rudiments de React et du développement Front
 
 ## Back de la web app :
 
-- https://github.com/PierreGoupil13/cavAVins_back en PHP symphony
+- https://github.com/PierreGoupil13/cavAVins_back en PHP symfony api platform
 
 ## Available Scripts
 
